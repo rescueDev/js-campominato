@@ -33,7 +33,11 @@ while (userNumbers.length < 84 && mintr === false) {
     console.log("Il numero " + askNumber + " è una Bomba");
     mintr = true;
   }
+  i++;
 }
+
+var PunteggioUtente = i - 1;
+console.log(PunteggioUtente);
 
 /*   var askNumber = parseInt(prompt("Inserisci numero da 1 a 100"));
   console.log(askNumber);
