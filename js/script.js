@@ -11,6 +11,7 @@ var bombs = [];
 var userNumbers = [];
 var numberBombMatch = false;
 var numberInvalid = false;
+var PunteggioUtente;
 
 //pushing random numbers (1 to 100) through a loop 16 times
 while (bombs.length < 16) {
@@ -32,11 +33,13 @@ while (userNumbers.length < 84 && mintr === false) {
   if (bombs.includes(askNumber) === true) {
     console.log("Il numero " + askNumber + " è una Bomba");
     mintr = true;
+    PunteggioUtente = i;
+  } else {
+    PunteggioUtente = i + 1;
   }
   i++;
 }
 
-var PunteggioUtente = i - 1;
 console.log(PunteggioUtente);
 
 /*   var askNumber = parseInt(prompt("Inserisci numero da 1 a 100"));
