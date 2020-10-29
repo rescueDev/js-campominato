@@ -27,64 +27,29 @@ var i = 0;
 var mintr = false;
 while (userNumbers.length < 84 && mintr === false) {
   var askNumber = parseInt(prompt("Inserisci numero da 1 a 100"));
-  userNumbers.push(askNumber);
+
   console.log(askNumber);
-  console.log(userNumbers);
+
   if (bombs.includes(askNumber) === true) {
     console.log("Il numero " + askNumber + " è una Bomba");
     mintr = true;
-    PunteggioUtente = i;
+  } else if (askNumber === 0 || askNumber > 100) {
+    alert("Range fuori");
+    break;
+  } else if (isNaN(askNumber)) {
+    alert("Non è un numero!!!");
+  }
+  // checking unique value
+  else if (userNumbers.includes(askNumber) == true) {
+    alert("Hai già usato questo numero, riprova !");
   } else {
-    PunteggioUtente = i + 1;
+    // push input values in array
+    userNumbers.push(askNumber);
+    console.log("Numeri: ", userNumbers);
   }
   i++;
 }
 
-console.log(PunteggioUtente);
-
-/*   var askNumber = parseInt(prompt("Inserisci numero da 1 a 100"));
-  console.log(askNumber);
-  //check if the number is not out of range (1 to 100) and is a number.
-  if (askNumber < 1 || askNumber > 100 || isNaN(askNumber)) {
-    console.log(askNumber, " non è un numero valido");
-    alert("Non è un numero valido, Fine partita!!!");
-    numberInvalid = true; //variabile che decreta fine gioco come se beccasse un numero bomba
-  } else {
-    userPromptNumbers.push(askNumber); //array to check if input number is unique (no double items)
-  }
-  //loop that scan over array in order to find double items in same array
-  for (var x = 0; x < userNumbers.length; x++) {
-    if (askNumber === userPromptNumbers[x]) {
-      console.log("Hai messo un numero già scelto precedentemente");
-      // var risultatoFinale = Array.from(new Set(userNumbers));
-    }
-  }
-
-  // Loop through array values to remove duplicate numbers
-
-  console.log("Numeri che vanno nell'array dei doppi: ", userPromptNumbers);
-  console.log("Numeri utente ", userNumbers);
-
-  //loop to determine if user number is ==== to one of array.bombs numbers(bomb)
-/*   for (var j = 0; j < bombs.length; j++) {
-    if (askNumber === bombs[j]) {
-      numberBombMatch = true;
-    } */
-/*   }
-  //checking if user choose a bomb number
-  if (numberBombMatch === true) {
-    console.log("Il numero", askNumber, " è la bomba!!! BOOOM"); //Game Over
-    console.log("Punteggio utente: ", userNumbers.length);
-    break;
-  } else if (numberInvalid === true) {
-    console.log("Hai usato un numero invalido, hai perso!!");
-    break;
-    //else adding number to user score variable
-  } else {
-    userNumbers.push(askNumber);
-  }
-}
- */
-/* console.log("Numeri utente: ", userNumbers);
-console.log("Numeri Possibili doppi ", userPromptNumbers);
-console.log("Punteggio utente: ", userNumbers.length); */
+// final score
+alert("Hai cumulato un totale di : " + --i + " punti");
+location.reload();
