@@ -8,6 +8,7 @@ var doubleNumber = false;
 
 //pushing random numbers (1 to 100) through a loop 16 times
 //function game level
+
 var gameLevel = mineField(1, 100);
 
   console.log("Numeri bomba del pc ", bombs);
