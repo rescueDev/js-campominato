@@ -16,7 +16,9 @@ var PunteggioUtente;
 //pushing random numbers (1 to 100) through a loop 16 times
 while (bombs.length < 16) {
   var rndmNumb = Math.round(Math.random() * 100) + 1;
-  if (bombs.includes(rndmNumb) === false) bombs.push(rndmNumb);
+  if (bombs.includes(rndmNumb) === false) {
+    bombs.push(rndmNumb);
+  }
 }
 
 console.log("Numeri bomba del pc ", bombs);
